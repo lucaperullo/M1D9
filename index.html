@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bingo click to play</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monofett&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body onclick="generateCells()">
+    <header>
+      <h1>Bingo</h1>
+      <img
+        class="imgtotoggle"
+        style="display: none; margin-left: 100vh"
+        onclick="addPlayer()"
+        src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-add-icon.png"
+        height="30"
+        width="30"
+      />
+      <p class="ptag">click to play</p>
+    </header>
+
+    <img
+      class="secondImagetoggle"
+      style="display: none; margin-left: 100vh"
+      onclick="randomNumber()"
+      src="https://icons.iconarchive.com/icons/graphicloads/100-flat/256/reload-icon.png"
+      height="30"
+      width="30"
+    />
+
+    <h2 class="displayRandomN"></h2>
+    <div id="container" class="container"></div>
+    <div class="container"><div></div></div>
+
+    <!-- Optional JavaScript -->
+    <script>
+      const generateCells = () => {
+        let div = document.createElement("div");
+        let body = document.querySelector("#container");
+        div.classList.add("row");
+        for (let i = 1; i < 77; i++) {
+          let cell = document.createElement("div");
+          cell.classList.add("cell");
+          cell.innerHTML = ` <h4>${i}</h4>`;
+          div.appendChild(cell);
+          body.appendChild(div);
+        }
+        let p = document.querySelector(".ptag");
+        let bodyy = document.querySelector("body");
+        bodyy.onclick = alert("Bingo board initializeted");
+        body.onclick = document.querySelector(".imgtotoggle").style.display =
+          "block";
+        body.onclick = document.querySelector(
+          ".secondImagetoggle"
+        ).style.display = "block";
+        p.innerHTML = "now click to add a new player!";
+      };
+      const addPlayer = () => {
+        let div = document.createElement("div");
+        let body = document.querySelector(".container div");
+        for (let i = 1; i < 25; i++) {
+          let cell = document.createElement("div");
+          cell.classList.add("cell");
+          cell.innerHTML = ` <h4>${i}</h4>`;
+          div.appendChild(cell);
+          body.appendChild(div);
+        }
+      };
+      const randomNumber = () => {
+        let randomNumber = Math.floor(Math.random() * 76) + 1;
+        let numberArray = document.querySelectorAll(".cell");
+        if (numberArray[randomNumber - 1].classList.contains("red")) {
+          console.log("duplicate number detected");
+          while (numberArray[randomNumber - 1].classList.contains("red")) {
+            console.log(randomNumber);
+            randomNumber = Math.floor(Math.random() * 76) + 1;
+            console.log("Rerolled to: " + randomNumber);
+          }
+        }
+        const numberHolder = document.querySelector(".displayRandomN");
+        numberHolder.innerText = randomNumber;
+        numberArray[parseInt(randomNumber) - 1].classList.add("red");
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

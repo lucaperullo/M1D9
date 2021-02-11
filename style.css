@@ -1,0 +1,72 @@
+* {
+  transition: 0.2s ease;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+}
+body {
+  height: 100vh;
+  background-image: url("https://images.hdqwalls.com/download/bingo-balls-wide-3840x2160.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.buttonss {
+  display: flex;
+  justify-content: space-between;
+}
+.cell {
+  padding: 5px;
+  width: 65px !important;
+  height: 40px;
+}
+.cell:hover {
+  border: solid 1px;
+  border-color: rgb(245, 62, 62);
+}
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+header {
+  background-color: #3f3131b2;
+  backdrop-filter: blur(5px);
+}
+h4 {
+  font-family: "Syncopate", sans-serif;
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 800;
+}
+h1 {
+  color: rgb(156, 151, 149);
+  padding-top: 5vh;
+  font-family: "Monofett", cursive;
+}
+.row {
+  background-color: rgba(212, 130, 130, 0.562);
+}
+.red {
+  background-color: #ff6a6c;
+  background-image: linear-gradient(180deg, #63623d 0%, #e0ff2f 100%);
+  display: inline-block;
+
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 30px;
+  margin: 5px 5px;
+}
+p {
+  font-family: "Nunito", sans-serif;
+}
+img {
+  cursor: pointer;
+}
